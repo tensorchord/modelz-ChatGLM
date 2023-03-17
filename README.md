@@ -1,4 +1,10 @@
-# Modelz Gradio Template
+# Modelz ChatGLM
+
+[ChatGLM](https://github.com/THUDM/ChatGLM-6B) is a large-scale pre-trained language model for open-domain chatbot, which is open-sourced by Tsinghua University.
+
+This repository contains the code (Dockerfile, [`build.envd`](https://envd.tensorchord.ai/guide/getting-started.html)) for deploying ChatGLM on [Modelz](https://docs.modelz.ai/).
+
+## Getting Started
 
 This is a template for creating a [Gradio](https://gradio.app/) app on [Modelz](https://modelz.ai/).
 
@@ -17,10 +23,6 @@ In most cases, you could use the template in the repository.
 ```bash
 docker build -t docker.io/USER/IMAGE .
 docker push docker.io/USER/IMAGE
-
-# GPU
-docker build -t docker.io/USER/IMAGE -f Dockerfile.gpu .
-docker push docker.io/USER/IMAGE
 ```
 
 On the other hand, a [`build.envd`](https://envd.tensorchord.ai/guide/getting-started.html) is a simplified alternative to a Dockerfile. It provides python-based interfaces that contains configuration settings for building a image. 
@@ -29,8 +31,6 @@ It is easier to use than a Dockerfile as it involves specifying only the depende
 
 ```bash
 envd build --output type=image,name=docker.io/USER/IMAGE,push=true
-# GPU
-envd build --output type=image,name=docker.io/USER/IMAGE,push=true -f :build_gpu
 ```
 
 ## Deploy
