@@ -1,0 +1,23 @@
+# syntax=v1
+
+
+def basic():
+    install.python()
+    install.python_packages(requirements="requirements.txt")
+
+
+# build is the default build function that will be used to build the CPU image.
+# envd build --output type=image,name=<image>,push=true
+def build():
+    basic()
+    io.copy("main.py", "/")
+    config.entrypoint(["python", "main.py"])
+
+
+# build_gpu is a custom build function that will be used to build the GPU image.
+# envd build --output type=image,name=<image>,push=true -f :build_gpu
+def build_gpu():
+    basic()
+    install.cuda(version="11.6.2")
+    io.copy("main.py", "/")
+    config.entrypoint(["python", "main.py"])
