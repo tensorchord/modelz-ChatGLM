@@ -37,4 +37,5 @@ with gr.Blocks() as demo:
         with gr.Column(scale=1):
             button = gr.Button("Generate")
     button.click(predict, [txt, state], [state] + text_boxes)
+    gr.Markdown("Check out [**ChatGLM**](https://github.com/THUDM/ChatGLM-6B) | Hosted on [**Modelz**](https://docs.modelz.ai/)")
 demo.launch()
